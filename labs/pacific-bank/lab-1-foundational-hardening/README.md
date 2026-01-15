@@ -23,3 +23,8 @@ This lab focuses on **policy enforcement**, not new connectivity.
 - Lab 0 routing and NAT must remain functional
 - Changes must be incremental and reversible
 - Controls must be auditable and explainable
+
+## Architecture Reference
+
+This lab implements controls defined in:
+- models/notional-pacific-bank/current-state/diagrams/logical/npb-lab1-security-overlay.drawio
