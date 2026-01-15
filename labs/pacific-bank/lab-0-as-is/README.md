@@ -100,3 +100,22 @@ Artifacts to capture:
 ## Stretch (Optional, only if time remains)
 - Add VLAN 20 VOICE and VLAN 30 ATM segments (no need to fully implement services)
 - Add syslog host and forward logs from routers/firewall
+
+## Lab 0 – As-Is Network Validation
+
+This lab models a Notional Pacific Bank current-state network with:
+
+- Hub-and-spoke private WAN
+- Centralized HQ services
+- Centralized internet egress via HQ
+- Static routing for clarity
+- NAT performed only at HQ
+
+### Verified Behaviors
+- Branch users can reach HQ services
+- HQ services can reach branch LANs
+- Branch internet access is backhauled and NATed at HQ
+- No direct branch-to-branch or branch-to-internet paths exist
+
+This lab establishes a clean baseline before applying security controls,
+segmentation, and automation in future labs.
