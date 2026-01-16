@@ -1,0 +1,8 @@
+! Static routes to branches through provider private WAN
+ip route 10.1.0.0 255.255.0.0 172.16.0.2 name TO_BR1
+ip route 10.2.0.0 255.255.0.0 172.16.0.2 name TO_BR2
+!
+! Static route to internet through provider
+ip route 0.0.0.0 0.0.0.0 198.51.100.2 name DEFAULT_TO_INET
+
+

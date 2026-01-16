@@ -1,0 +1,2 @@
+! Static default route for BR2-RTR to HQ-RTR
+ip route 0.0.0.0 0.0.0.0 172.16.0.10 name DEFAULT_ROUTE_TO_HQ

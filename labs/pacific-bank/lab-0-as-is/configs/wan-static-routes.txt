@@ -1,0 +1,9 @@
+! Static routes to branches
+ip route 10.1.0.0 255.255.0.0 172.16.0.5 name TO_BR1-RTR
+ip route 10.2.0.0 255.255.0.0 172.16.0.9 name TO_BR2-RTR
+!
+! Static route to HQ Servers
+ip route 10.0.10.0 255.255.255.0 172.16.0.1 name TO_HQ-SRV
+!
+! Customer default route to HQ
+ip route 0.0.0.0 0.0.0.0 172.16.0.1 name DEFAULT_TO_HQ
