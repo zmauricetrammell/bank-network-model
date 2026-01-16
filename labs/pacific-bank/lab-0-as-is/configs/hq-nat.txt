@@ -1,0 +1,5 @@
+! Access list for permitted inside source addresses
+ip access-list extended INTERNAL 
+    permit ip 10.0.0.0 0.255.255.255 any
+! PAT on external interface to INET
+ip nat inside source list INTERNAL interface FastEthernet1/0 overload
