@@ -1,0 +1,53 @@
+! 1. validate ip acls on BR1
+show ip access-lists
+
+! 2 validate connectivity from BR1-GUEST 
+
+! Test: Default Gateway (10.1.50.1)
+! Expected: PASS
+ping 10.1.50.1
+
+! Test: Corporate HQ DNS Server (10.0.10.100 - TCP)
+! Expected: PASS
+ping 10.0.10.100 -p 53 -3
+
+! Test: Corporate HQ DNS Server (10.0.10.100 - UDP)
+! Expected: PASS
+ping 10.0.10.100 -p 53 -2
+
+! Test: Corporate HQ DNS Server (10.0.10.100 - ICMP)
+! Expected: PASS
+ping 10.0.10.100
+
+! Test: Internet Connection (203.0.113.100)
+! Expected: PASS
+ping 203.0.113.100
+
+! Test: Users LAN (10.1.10.100)
+! Expected: FAIL
+ping 10.1.10.100
+
+! Test: Management LAN (10.1.99.100)
+! Expected: FAIL
+ping 10.1.99.100
+
+! Test: WAN networks
+! Expected: FAIL
+ping 172.16.0.1
+ping 172.16.0.2
+ping 172.16.0.5
+ping 172.16.0.6
+ping 172.16.0.9
+ping 172.16.0.10
+
+! Test: BR2 Users
+! Expected: FAIL
+! ping 10.2.10.100
+
+! Test: BR2 Guests
+! Expected: FAIL
+! ping 10.2.50.100
+
+! Test: BR2 Management
+! Expected: FAIL
+! ping 10.2.99.100

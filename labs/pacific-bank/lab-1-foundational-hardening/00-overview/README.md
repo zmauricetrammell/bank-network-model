@@ -4,7 +4,7 @@
 Apply defense-in-depth controls to the Lab 0 network without changing
 its routing topology or breaking availability.
 
-This lab focuses on **policy enforcement**, not new connectivity.
+This lab focuses on **policy enforcement**, not new connectivity; incrementally hardening the network by addressing guest access, lateral branch movement, management access, and centralized enforcement, in that order.
 
 ## In Scope
 - Guest isolation

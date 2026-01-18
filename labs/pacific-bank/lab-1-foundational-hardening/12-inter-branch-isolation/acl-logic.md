@@ -1,4 +1,4 @@
-# ACL Logic – Lab 1 (Guest Isolation)
+# ACL Logic – Lab 1.2 (Branch Isolation)
 
 ## Scope
 - Location: Branch 1

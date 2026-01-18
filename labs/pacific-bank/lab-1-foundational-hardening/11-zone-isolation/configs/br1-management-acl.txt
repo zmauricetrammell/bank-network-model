@@ -1,0 +1,20 @@
+! ACL for BR1 management LAN
+ip access-list extended BR1_MGMT_IN
+    remark 0) Allow access to default gateway
+    permit ip 10.1.99.100 0.0.0.255 host 10.1.99.1 
+
+    remark 1) Allow access to corporate servers
+    permit ip 10.1.99.100 0.0.0.255 10.0.10.100 0.0.0.255
+
+    remark 2) Allow access to branch subnets
+    permit ip 10.1.99.100 0.0.0.255 10.1.0.0 0.0.255.255
+
+    remark 3) Deny internet access
+    deny ip 10.1.99.100 0.0.0.255 203.0.113.0 0.0.0.255
+
+    remark 4) Deny WAN transport access
+    deny ip 10.1.10.0 0.0.0.255 172.16.0.0 0.15.255.255
+
+! Add to interface 
+interface FastEthernet3/0
+    ip access-group BR1_MGMT_IN in
