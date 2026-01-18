@@ -1,0 +1,24 @@
+! ACL for BR2 guest LAN
+ip access-list extended BR2_GUEST_IN
+    remark 0) Allow guests access to gateway
+    permit ip 10.2.50.0 0.0.0.255 host 10.2.50.1
+
+    remark 1) Allow guest DNS to corporate resolver
+    permit udp 10.2.50.0 0.0.0.255 host 10.0.10.100 eq 53
+    permit tcp 10.2.50.0 0.0.0.255 host 10.0.10.100 eq 53
+
+    remark 2) Allow guest "internet" access
+    permit ip 10.2.50.0 0.0.0.255 203.0.113.0 0.0.0.255
+
+    remark 3) Deny guest to all corporate private networks
+    deny ip 10.2.50.0 0.0.0.255 10.0.0.0 0.255.255.255
+
+    remark 4) Deny guest to WAN networks 
+    deny ip 10.2.50.0 0.0.0.255 172.16.0.0 0.15.255.255
+
+    remark 5) Default action (lab friendly)
+    permit ip 10.2.50.0 0.0.0.255 any
+
+! Add to interface
+interface FastEthernet2/0
+    ip access-group BR2_GUEST_IN in
